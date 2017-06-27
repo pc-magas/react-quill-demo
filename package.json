@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "quill": "^1.2.6",
     "quill-image-resize-module": "^3.0.0",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-quill": "^1.0.0-rc.3"
+    "react-dom": "^15.6.1"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"

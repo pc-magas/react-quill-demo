@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import ReactQuill, { Quill } from 'react-quill';
+import Quill from './MyQuill.js';
 import { ImageResize } from 'quill-image-resize-module';
-import '../node_modules/react-quill/dist/quill.snow.css';
+import '../node_modules/quill/dist/quill.snow.css';
 
-Quill.register('modules/imageResize', ImageResize);
 
 const CustomToolbar = () => (
   <div id="toolbar">
@@ -45,17 +44,20 @@ class MyEditor extends Component {
         this.setState({text:value})
     }
 
+    componentDidMount() {
+        this.quill= new Quill("#editor",{
+            theme: "snow",
+            modules: MyEditor.modules,
+            formats: MyEditor.formats
+        });
+    }
+
+
     render(){
         return (
             <div>
                 <CustomToolbar />
-                <ReactQuill 
-                    value={this.state.text}
-                    onChange={this.onTextChange.bind(this)}
-                    modules={MyEditor.modules}
-                    formats={MyEditor.formats}
-                    theme="snow"
-                />
+                <div id="editor"></div>
              </div>
 
         )
@@ -78,4 +80,4 @@ MyEditor.modules = {
   }
 }
 
-export default MyEditor
+export default MyEditor;
